@@ -10,13 +10,10 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1/tasks", tasks);
-
-const port = 3000;
-
 const start = async () => {
   try {
     await connectDB(process.env.DB_CONNECTION_STRING);
-    app.listen(3000, console.log(`Listening on port ${port}...`));
+    app.listen(process.env.PORT, console.log(`App is listening...`));
   } catch (error) {
     console.log(error);
   }
